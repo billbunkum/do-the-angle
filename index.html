@@ -39,6 +39,8 @@
                             </li>
                         <li><a href="#">All Lists</a>
                             </li>
+                        <li><a href="#" ng-click="bomb.markAllComplete()">Mark All Complete</a>
+                            </li>
                     </ul>
 </div>
             </div>
@@ -47,8 +49,6 @@
 
     <div class="container">
         <div class="content">
-
-
 
     <!-- showing old tasks -->
                 <table class="table table-striped table-bordered">
@@ -60,18 +60,18 @@
                                 <tr>
                                 <!-- check mark if bomb.complete_check is true-->
                                     <td> 
-                                        <span ng-show="bomb.check_complete">&#10004;</span>
+                                        <span ng-show="bomb.all_complete">&#10004;</span>
                                         </td>
 
-                                    <td>{{ errand.name }}
+                                    <td ng-show="errand.name">{{ errand.name }}
                                         </td>
 
                                 <!-- returns item + 'complete.'-->
-                                    <td><button ng-click="bomb.markComplete(bomb.errand)" type="submit" class="btn btn-warning">Mark Complete</button>
+                                    <td><button ng-click="bomb.markComplete()" type="submit" class="btn btn-info">Mark Complete</button>
                                         </td>
 
                                 <!-- pops item & alerts -->
-                                    <td><button ng-click="bomb.removeTask(bomb.errand)" type="submit" class="btn btn-danger">Remove Task</button>
+                                    <td><button ng-click="bomb.removeTask(bomb.$index.errand)" type="submit" class="btn btn-danger">Remove Task</button>
                                         </td>
                                 </tr>
                             </tbody>
@@ -84,7 +84,7 @@
                         </label>
                     <input ng-model="bomb.user_input.name" type="text" id="new_task" placeholder="&nbsp;Type new errand here">
                 </div>
-                <button type="submit" class="btn btn-info" ng-click="bomb.addTask()">New Task</button>
+                <button type="submit" class="btn btn-primary" ng-click="bomb.addTask()">New Task</button>
 
         </div> <!-- END content block -->
     </div> <!-- END container -->

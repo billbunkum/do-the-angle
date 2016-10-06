@@ -4,6 +4,7 @@ angular.module('app', [])
 function mainController() {
     const ctrl = this;
     ctrl.user_input = {};
+    ctrl.all_complete = false;
     ctrl.check_complete = false;
 
 //this houses 'task objects'
@@ -26,20 +27,22 @@ function mainController() {
     };
 
 //item is bomb.errand
-    function markComplete(item) {
-        item = item + "complete.";
-        ctrl.check_complete = true;
-
-        return item;
+    function markComplete(index_item) {
+        ctrl.check_complete.index_item = true;
     };
 
-    function removeTask(item) {
+    function markAllComplete() {
+        ctrl.all_complete = ctrl.all_complete === true ? false: true;
+    };
+
+    function removeTask(index_item) {
         ctrl.tasks.pop(item);
         
         return alert(item + " was removed.");
     };
 
     ctrl.addTask = addTask;
+    ctrl.markAllComplete = markAllComplete;
     ctrl.markComplete = markComplete;
     ctrl.removeTask = removeTask;
 } //end of mainController
