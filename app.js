@@ -4,6 +4,7 @@ angular.module('app', [])
 function mainController() {
     const ctrl = this;
     ctrl.user_input = {};
+    ctrl.check_complete = false;
 
 //this houses 'task objects'
     ctrl.tasks = [
@@ -27,6 +28,7 @@ function mainController() {
 //item is bomb.errand
     function markComplete(item) {
         item = item + "complete.";
+        ctrl.check_complete = true;
 
         return item;
     };

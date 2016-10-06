@@ -58,6 +58,11 @@
 
                             <tbody ng-repeat="errand in bomb.tasks">
                                 <tr>
+                                <!-- check mark if bomb.complete_check is true-->
+                                    <td> 
+                                        <span ng-show="bomb.check_complete">&#10004;</span>
+                                        </td>
+
                                     <td>{{ errand.name }}
                                         </td>
 
