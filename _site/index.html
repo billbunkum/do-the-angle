@@ -24,7 +24,7 @@
     <script src="app.js"></script>
 
 </head>
-<body ng-cloak ng-controller="MainCtrl">
+<body ng-cloak ng-controller="MainCtrl as bomb">
     <header>
         <nav class="navbar-inverse navbar-fixed-top navi-color">
             <div class="container">
@@ -55,11 +55,10 @@
                     <thead>Current Tasks
                         </thead>
                         <div class="form-group">
-                            <tbody ng-repeat="errand in tasks">
+                            <tbody ng-repeat="errand in bomb.tasks">
                                 <tr>
-                                    <label for="errand">{{ errand.name }}
-                                        </label>
-                                    
+                                    <td>{{ errand.name }}
+                                        </td>
                                 </tr>
                             </tbody>
                         </div>
@@ -69,9 +68,9 @@
                 <div class="form-group">
                     <label for="new_task">Add a Task
                         </label>
-                    <input type="text" id="new_task" placeholder=" Type new errand here">
+                    <input ng-model="bomb.user_input.name" type="text" id="new_task" placeholder="&nbsp;Type new errand here">
                 </div>
-                <button type="submit" class="btn btn-info" ng-click="addTask()">New Task</button>
+                <button type="submit" class="btn btn-info" ng-click="bomb.addTask()">New Task</button>
 
         </div> <!-- END content block -->
     </div> <!-- END container -->

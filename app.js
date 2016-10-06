@@ -24,5 +24,6 @@ function mainController() {
         ctrl.user_input = {};
     };
 
+    ctrl.addTask = addTask;
 
 } //end of mainController
