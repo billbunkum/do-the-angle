@@ -7,6 +7,11 @@ body {
     background-color: #FFEECA;
 }
 
+.content {
+    margin: 0 auto;
+    width: 700px;
+}
+
 footer {
     position: fixed;
     bottom: 5px;
