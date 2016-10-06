@@ -24,6 +24,20 @@ function mainController() {
         ctrl.user_input = {};
     };
 
-    ctrl.addTask = addTask;
+//item is bomb.errand
+    function markComplete(item) {
+        item = item + "complete.";
 
+        return item;
+    };
+
+    function removeTask(item) {
+        ctrl.tasks.pop(item);
+        
+        return alert(item + " was removed.");
+    };
+
+    ctrl.addTask = addTask;
+    ctrl.markComplete = markComplete;
+    ctrl.removeTask = removeTask;
 } //end of mainController

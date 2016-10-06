@@ -55,9 +55,18 @@
                     <thead>Current Tasks
                         </thead>
                         <div class="form-group">
+
                             <tbody ng-repeat="errand in bomb.tasks">
                                 <tr>
                                     <td>{{ errand.name }}
+                                        </td>
+
+                                <!-- returns item + 'complete.'-->
+                                    <td><button ng-click="bomb.markComplete(bomb.errand)" type="submit" class="btn btn-warning">Mark Complete</button>
+                                        </td>
+
+                                <!-- pops item & alerts -->
+                                    <td><button ng-click="bomb.removeTask(bomb.errand)" type="submit" class="btn btn-danger">Remove Task</button>
                                         </td>
                                 </tr>
                             </tbody>
