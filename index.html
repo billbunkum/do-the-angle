@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Do-the-Angle To Do List</title>
@@ -24,7 +24,7 @@
     <script src="app.js"></script>
 
 </head>
-<body ng-controller="MainCtrl">
+<body ng-cloak ng-controller="MainCtrl">
     <header>
         <nav class="navbar-inverse navbar-fixed-top navi-color">
             <div class="container">
@@ -35,7 +35,7 @@
                 </div>
 <div class="container">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">{{current_list}}</a>
+                        <li><a href="#"><< Current >> List</a>
                             </li>
                         <li><a href="#">All Lists</a>
                             </li>
@@ -48,10 +48,33 @@
     <div class="container">
         <div class="content">
 
-    Task List
 
-        </div>
-    </div>
+
+    <!-- showing old tasks -->
+                <table class="table table-striped table-bordered">
+                    <thead>Current Tasks
+                        </thead>
+                        <div class="form-group">
+                            <tbody ng-repeat="errand in tasks">
+                                <tr>
+                                    <label for="errand">{{ errand.name }}
+                                        </label>
+                                    
+                                </tr>
+                            </tbody>
+                        </div>
+                </table>
+
+    <!-- adding new tasks -->
+                <div class="form-group">
+                    <label for="new_task">Add a Task
+                        </label>
+                    <input type="text" id="new_task" placeholder=" Type new errand here">
+                </div>
+                <button type="submit" class="btn btn-info" ng-click="addTask()">New Task</button>
+
+        </div> <!-- END content block -->
+    </div> <!-- END container -->
 
     <footer>
     <hr>

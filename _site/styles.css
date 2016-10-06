@@ -24,3 +24,7 @@ footer {
     margin-bottom: 15px;
     bottom: 10px;
 }
+
+a.link {
+    color: #5BC0DE;
+}
