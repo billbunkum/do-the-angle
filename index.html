@@ -39,7 +39,7 @@
                             </li>
                         <li><a href="#">All Lists</a>
                             </li>
-                        <li><a href="#" ng-click="bomb.markAllComplete()">Mark All Complete</a>
+                        <li><a href="#" ng-click="bomb.markAllComplete()">All Complete / Incomplete</a>
                             </li>
                     </ul>
 </div>
@@ -56,22 +56,24 @@
                         </thead>
                         <div class="form-group">
 
-                            <tbody ng-repeat="errand in bomb.tasks">
+                            <tbody ng-repeat="errand in bomb.tasks track by $index">
                                 <tr>
                                 <!-- check mark if bomb.complete_check is true-->
                                     <td> 
-                                        <span ng-show="bomb.all_complete">&#10004;</span>
-                                        </td>
+                                        <span ng-show="bomb.all_complete">
+                                            &#10004;
+                                        </span>
+                                    </td>
 
-                                    <td ng-show="errand.name">{{ errand.name }}
+                                    <td>{{ errand.name }}
                                         </td>
 
                                 <!-- returns item + 'complete.'-->
-                                    <td><button ng-click="bomb.markComplete()" type="submit" class="btn btn-info">Mark Complete</button>
+                                    <td><button ng-click="bomb.markComplete(errand)" type="submit" class="btn btn-info">Mark Complete</button>
                                         </td>
 
                                 <!-- pops item & alerts -->
-                                    <td><button ng-click="bomb.removeTask(bomb.$index.errand)" type="submit" class="btn btn-danger">Remove Task</button>
+                                    <td><button ng-click="bomb.removeTask(errand.$index)" type="submit" class="btn btn-danger">Remove Task</button>
                                         </td>
                                 </tr>
                             </tbody>
