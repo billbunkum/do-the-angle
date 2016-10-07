@@ -7,6 +7,8 @@ function mainController() {
     ctrl.all_complete = false;
     ctrl.check_complete = false;
 
+//use to toggle 'mark complete' button text
+    ctrl.incompleteTask = true;
 //this houses 'task objects'
     ctrl.tasks = [
         {
@@ -36,21 +38,23 @@ function mainController() {
         ctrl.user_input = {};
     };
 
-    function markComplete(errand) {
-        errand.done = true;
+//toggles task complete / incomplete; changes button text accordingly
+    function toggleComplete(errand) {
+        errand.done = !errand.done;
+        ctrl.incompleteTask = !ctrl.incompleteTask;
     };
 
 //removes bottom task irrespective of link
     function removeTask(index) {
         ctrl.tasks.splice(index, 1);
 //        delete ctrl.tasks[index];
-        return alert(index + " was removed.");
+        return alert("\'" + ctrl.tasks[index].name + "\'" + " was removed.");
     };
 
 //setting functions to ctrl
     ctrl.addTask = addTask;
     ctrl.markAllComplete = markAllComplete;
 
-    ctrl.markComplete = markComplete;
+    ctrl.toggleComplete = toggleComplete;
     ctrl.removeTask = removeTask;
 } //end of mainController

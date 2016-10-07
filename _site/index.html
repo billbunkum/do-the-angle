@@ -69,11 +69,18 @@
                                         </td>
 
                                 <!-- returns item + 'complete.'-->
-                                    <td><button ng-click="bomb.markComplete(errand)" class="btn btn-info">Mark Complete</button>
+                                    <td ng-show="bomb.incompleteTask">
+                                        <button ng-click="bomb.toggleComplete(errand)" 
+                                            class="btn btn-info">Mark Complete</button>
+                                        </td>
+                                    <td ng-show="!bomb.incompleteTask">
+                                        <button ng-click="bomb.toggleComplete(errand)" 
+                                            class="btn btn-info">Reset Task</button>
                                         </td>
 
                                 <!-- pops item & alerts -->
-                                    <td><button ng-click="bomb.removeTask($index)" class="btn btn-danger">Remove Task</button>
+                                    <td>
+                                        <button ng-click="bomb.removeTask($index)" class="btn btn-danger">Remove Task</button>
                                         </td>
                                 </tr>
                             </tbody>
