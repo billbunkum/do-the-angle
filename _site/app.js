@@ -9,6 +9,7 @@ function mainController() {
 
 //use to toggle 'mark complete' button text
     ctrl.incompleteTask = true;
+
 //this houses 'task objects'
     ctrl.tasks = [
         {
@@ -46,9 +47,11 @@ function mainController() {
 
 //removes bottom task irrespective of link
     function removeTask(index) {
+        var hello = ctrl.tasks[index].name;
         ctrl.tasks.splice(index, 1);
-//        delete ctrl.tasks[index];
-        return alert("\'" + ctrl.tasks[index].name + "\'" + " was removed.");
+
+//        return alert("\'" + ctrl.tasks[index].name + "\'" + " was removed.");
+        return alert("\'" + hello + "\'" + " was removed.");
     };
 
 //setting functions to ctrl
