@@ -78,7 +78,7 @@
                                     <td>{{ errand.name }}
                                         </td>
 
-                                    <td>{{ errand.date }}
+                                    <td>{{ errand.date | date: 'MM-dd-yyyy @ h:mm:ssa' }}
                                         </td>
                                 <!-- complete button toggle -->
                                     <td ng-show="bomb.incompleteTask">

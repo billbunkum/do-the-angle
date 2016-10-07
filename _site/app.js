@@ -40,11 +40,12 @@ function mainController($filter) {
     function addTask() {
         ctrl.tasks.push(ctrl.user_input);
         ctrl.user_input.date = new Date();
-        task_date = ctrl.user_input.date;
+//        task_date = ctrl.user_input.date;
+//        ctrl.user_input.date = $filter('ctrl.user_input.date')(new Date(), 'MMM dd yyyy');
 
         ctrl.user_input = {};
 
-        ctrl.getDate(task_date);
+//        ctrl.getDate(task_date);
     };
 
 //toggles task complete / incomplete; changes button text accordingly
@@ -67,10 +68,9 @@ function mainController($filter) {
     };
 
 //runs when addTask() is called
-    function getDate(task_date) {
-        return task_date;
-//        ctrl.tasks[index].date = $filter('date')(new Date(), 'MMM dd yyyy');
-    };
+//    function getDate(task_date) {
+//        return task_date;
+//    };
 
 //setting functions to ctrl
     ctrl.addTask = addTask;
@@ -80,7 +80,7 @@ function mainController($filter) {
     ctrl.removeTask = removeTask;
 
     ctrl.listByKey = listByKey;
-    ctrl.getDate = getDate;
+//    ctrl.getDate = getDate;
 
 //running functions at load
 
