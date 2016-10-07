@@ -14,14 +14,17 @@ function mainController($filter) {
     ctrl.tasks = [
         {
             name: "garbage",
+            date: ""
         },
 
         {
-            name: "dinner"
+            name: "dinner",
+            date: ""
         },
 
         {
-            name: "finish this app"
+            name: "finish this app",
+            date: ""
         }
     ];
 
@@ -36,7 +39,12 @@ function mainController($filter) {
 //adds task to bottom of list
     function addTask() {
         ctrl.tasks.push(ctrl.user_input);
+        ctrl.user_input.date = new Date();
+        task_date = ctrl.user_input.date;
+
         ctrl.user_input = {};
+
+        ctrl.getDate(task_date);
     };
 
 //toggles task complete / incomplete; changes button text accordingly
@@ -55,7 +63,13 @@ function mainController($filter) {
 
 //orders by alphabetical
     function listByKey(orderByKey) {
-        ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
+        ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
+    };
+
+//runs when addTask() is called
+    function getDate(task_date) {
+        return task_date;
+//        ctrl.tasks[index].date = $filter('date')(new Date(), 'MMM dd yyyy');
     };
 
 //setting functions to ctrl
@@ -66,4 +80,8 @@ function mainController($filter) {
     ctrl.removeTask = removeTask;
 
     ctrl.listByKey = listByKey;
+    ctrl.getDate = getDate;
+
+//running functions at load
+
 } //end of mainController
