@@ -7,24 +7,21 @@ function mainController($filter) {
     ctrl.all_complete = false;
     ctrl.check_complete = false;
 
-//use to toggle 'mark complete' button text
-    ctrl.incompleteTask = true;
-
 //this houses 'task objects'
     ctrl.tasks = [
         {
             name: "garbage",
-            date: ""
+            date: "01-06-2016 @ 7:02:34PM"
         },
 
         {
             name: "dinner",
-            date: ""
+            date: "10-05-2012 @ 7:02:34AM"
         },
 
         {
             name: "finish this app",
-            date: ""
+            date: "10-03-2015 @ 3:02:34PM"
         }
     ];
 
@@ -40,18 +37,21 @@ function mainController($filter) {
     function addTask() {
         ctrl.tasks.push(ctrl.user_input);
         ctrl.user_input.date = new Date();
-//        task_date = ctrl.user_input.date;
-//        ctrl.user_input.date = $filter('ctrl.user_input.date')(new Date(), 'MMM dd yyyy');
 
         ctrl.user_input = {};
 
-//        ctrl.getDate(task_date);
     };
 
 //toggles task complete / incomplete; changes button text accordingly
     function toggleComplete(errand) {
         errand.done = !errand.done;
-        ctrl.incompleteTask = !ctrl.incompleteTask;
+//ng-show for button toggle -> 'mark' & 'reset'
+        errand.mark_button = !errand.mark_button;
+
+//  trying to define so i can sort by Completion 
+//        if (errand.done) {
+//            ctrl.tasks.priority = true;
+//        };
     };
 
 //removes bottom task irrespective of link
@@ -67,11 +67,6 @@ function mainController($filter) {
         ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
     };
 
-//runs when addTask() is called
-//    function getDate(task_date) {
-//        return task_date;
-//    };
-
 //setting functions to ctrl
     ctrl.addTask = addTask;
     ctrl.markAllComplete = markAllComplete;
@@ -80,8 +75,5 @@ function mainController($filter) {
     ctrl.removeTask = removeTask;
 
     ctrl.listByKey = listByKey;
-//    ctrl.getDate = getDate;
-
-//running functions at load
 
 } //end of mainController
