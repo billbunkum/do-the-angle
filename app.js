@@ -11,34 +11,40 @@ function mainController() {
     ctrl.tasks = [
         {
             name: "garbage",
-//            state: false,
-//            timestamp: Date.now();
         },
+
         {
-            name: "dinner",
-//            state: false,
-//            timestamp: Date.now();
+            name: "dinner"
+        },
+
+        {
+            name: "finish this app"
         }
     ];
 
+//uses a condition statement to toggle all check boxes at once w/ nav link
     function markAllComplete() {
-        ctrl.all_complete = ctrl.all_complete === true ? false: true;
+        for(i = 0; i < ctrl.tasks.length; i++){
+            ctrl.tasks[i].done = ctrl.all_complete ? false : true;
+        };
+        ctrl.all_complete = !ctrl.all_complete;
     };
 
+//adds task to bottom of list
     function addTask() {
         ctrl.tasks.push(ctrl.user_input);
         ctrl.user_input = {};
     };
 
-//item is bomb.errand
     function markComplete(errand) {
-        ctrl.check_complete.errand.$index = true;
+        errand.done = true;
     };
 
-    function removeTask(errand) {
-        ctrl.tasks.pop(errand.$index);
-        
-        return alert(errand.$index + " was removed.");
+//removes bottom task irrespective of link
+    function removeTask(index) {
+        ctrl.tasks.splice(index, 1);
+//        delete ctrl.tasks[index];
+        return alert(index + " was removed.");
     };
 
 //setting functions to ctrl

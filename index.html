@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- font awesome styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- awesome fonts -->
     <script src="https://use.fontawesome.com/a04d9e4c1c.js"></script>
     <!-- my styles -->
@@ -26,14 +28,14 @@
 </head>
 <body ng-cloak ng-controller="MainCtrl as bomb">
     <header>
-        <nav class="navbar-inverse navbar-fixed-top navi-color">
+        <nav class="navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <span class="navbar-brand">
-                        <a href="#">TO - Angular - DO</a>
+                        TO - Angular - DO
                     </span>
                 </div>
-<div class="container">
+
                     <ul class="nav navbar-nav">
                         <li><a href="#"><< Current >> List</a>
                             </li>
@@ -42,7 +44,7 @@
                         <li><a href="#" ng-click="bomb.markAllComplete()">All Complete / Incomplete</a>
                             </li>
                     </ul>
-</div>
+
             </div>
         </nav>
     </header>
@@ -60,20 +62,18 @@
                                 <tr>
                                 <!-- check mark if bomb.complete_check is true-->
                                     <td> 
-                                        <span ng-show="bomb.all_complete">
-                                            &#10004;
-                                        </span>
+                                        <i ng-show="errand.done" class="fa fa-check" aria-hidden="true"></i>
                                     </td>
 
                                     <td>{{ errand.name }}
                                         </td>
 
                                 <!-- returns item + 'complete.'-->
-                                    <td><button ng-click="bomb.markComplete(errand)" type="submit" class="btn btn-info">Mark Complete</button>
+                                    <td><button ng-click="bomb.markComplete(errand)" class="btn btn-info">Mark Complete</button>
                                         </td>
 
                                 <!-- pops item & alerts -->
-                                    <td><button ng-click="bomb.removeTask(errand.$index)" type="submit" class="btn btn-danger">Remove Task</button>
+                                    <td><button ng-click="bomb.removeTask($index)" class="btn btn-danger">Remove Task</button>
                                         </td>
                                 </tr>
                             </tbody>
