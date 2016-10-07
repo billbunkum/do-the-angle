@@ -1,7 +1,7 @@
 angular.module('app', [])
     .controller('MainCtrl', mainController);
 
-function mainController() {
+function mainController($filter) {
     const ctrl = this;
     ctrl.user_input = {};
     ctrl.all_complete = false;
@@ -50,8 +50,12 @@ function mainController() {
         var hello = ctrl.tasks[index].name;
         ctrl.tasks.splice(index, 1);
 
-//        return alert("\'" + ctrl.tasks[index].name + "\'" + " was removed.");
         return alert("\'" + hello + "\'" + " was removed.");
+    };
+
+//orders by alphabetical
+    function listByKey(orderByKey) {
+        ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
     };
 
 //setting functions to ctrl
@@ -60,4 +64,6 @@ function mainController() {
 
     ctrl.toggleComplete = toggleComplete;
     ctrl.removeTask = removeTask;
+
+    ctrl.listByKey = listByKey;
 } //end of mainController

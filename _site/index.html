@@ -52,12 +52,17 @@
     <div class="container">
         <div class="content">
 
+                    <button ng-click="bomb.listByKey('name')">Order by Alpha
+                        </button>
+                    <button ng-click="bomb.listByKey('date')">Order by Date
+                        </button>
+
     <!-- showing old tasks -->
                 <table class="table table-striped table-bordered">
                     <thead>Current Tasks
                         </thead>
-                        <div class="form-group">
 
+                        <div class="form-group">
                             <tbody ng-repeat="errand in bomb.tasks track by $index">
                                 <tr>
                                 <!-- check mark if bomb.complete_check is true-->
@@ -68,7 +73,7 @@
                                     <td>{{ errand.name }}
                                         </td>
 
-                                <!-- returns item + 'complete.'-->
+                                <!-- complete button toggle -->
                                     <td ng-show="bomb.incompleteTask">
                                         <button ng-click="bomb.toggleComplete(errand)" 
                                             class="btn btn-info">Mark Complete</button>
@@ -78,9 +83,9 @@
                                             class="btn btn-info">Reset Task</button>
                                         </td>
 
-                                <!-- pops item & alerts -->
+                                <!-- X -->
                                     <td>
-                                        <button ng-click="bomb.removeTask($index)" class="btn btn-danger">Remove Task</button>
+                                        <i class="fa fa-times-circle fa-2x" ng-click="bomb.removeTask($index)" aria-hidden="true"></i>
                                         </td>
                                 </tr>
                             </tbody>
