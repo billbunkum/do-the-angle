@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Do-the-Angle To Do List</title>
 
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:600" rel="stylesheet">
+
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -105,8 +108,10 @@
                                         </td>
                                 <!-- complete button toggle -->
                                     <td ng-show="!errand.mark_button">
+                                        
                                         <button ng-click="bomb.toggleComplete(errand)" 
                                             class="btn btn-info">Mark Complete</button>
+
                                         </td>
                                     <td ng-show="errand.mark_button">
                                         <button ng-click="bomb.toggleComplete(errand)" 
@@ -127,10 +132,18 @@
         </div> <!-- END row 2 -->
 
         <!-- congratulations messages -->
-        <div class="row">
-            <div class="col-md-12">
-                
+        <div class="row" ng-show="bomb.alert_button">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;
+                            </span>
+                    </button>
+                    <strong>Yeah!</strong> You're kicking ass.
+                </div>
             </div>
+            <div class="col-md-3"></div>
         </div> <!-- END row 3 -->
 
         <div class="row">

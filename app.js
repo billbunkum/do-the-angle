@@ -6,6 +6,7 @@ function mainController($filter) {
     ctrl.user_input = {};
     ctrl.all_complete = false;
     ctrl.check_complete = false;
+    ctrl.alert_button = false;
 
 //this houses 'task objects'
     ctrl.tasks = [
@@ -31,6 +32,7 @@ function mainController($filter) {
             ctrl.tasks[i].done = ctrl.all_complete ? false : true;
         };
         ctrl.all_complete = !ctrl.all_complete;
+        ctrl.alert_button = !ctrl.alert_button;
     };
 
 //adds task to bottom of list

@@ -1,13 +1,16 @@
 body {
     padding-top: 70px;
-    background-color: #CDC0B0; /*antique white3*/
+    background-color: #EEF3E2; /*green veil*/
+    font-family: 'Abhaya Libre', serif;
+    font-size: 18px;
 }
 
 footer {
     position: fixed;
     bottom: 5px;
     width: 100%;
-    background-color: #FFEECA; /*light adobe*/
+    background-color: #1F1F1F;
+    color: #FFFFFF;
 }
 
 .copyright {
