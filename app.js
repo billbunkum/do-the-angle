@@ -8,6 +8,7 @@ function mainController($filter) {
     ctrl.check_complete = false;
     ctrl.alert_button = false;
 
+
 //this houses 'task objects'
     ctrl.tasks = [
         {
@@ -30,8 +31,12 @@ function mainController($filter) {
     function markAllComplete() {
         for(i = 0; i < ctrl.tasks.length; i++){
             ctrl.tasks[i].done = ctrl.all_complete ? false : true;
+//toggle mark/reset button
+            ctrl.tasks[i].mark_button = ctrl.all_complete ? false : true;
         };
         ctrl.all_complete = !ctrl.all_complete;
+
+//bootstrap alert message appears or disappears
         ctrl.alert_button = !ctrl.alert_button;
     };
 
@@ -49,11 +54,6 @@ function mainController($filter) {
         errand.done = !errand.done;
 //ng-show for button toggle -> 'mark' & 'reset'
         errand.mark_button = !errand.mark_button;
-
-//  trying to define so i can sort by Completion 
-//        if (errand.done) {
-//            ctrl.tasks.priority = true;
-//        };
     };
 
 //removes bottom task irrespective of link

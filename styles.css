@@ -3,6 +3,7 @@ body {
     background-color: #EEF3E2; /*green veil*/
     font-family: 'Abhaya Libre', serif;
     font-size: 18px;
+    text-align: center;
 }
 
 footer {
@@ -11,6 +12,10 @@ footer {
     width: 100%;
     background-color: #1F1F1F;
     color: #FFFFFF;
+}
+
+#text-box, .submit-button {
+    text-align: left;
 }
 
 .copyright {
