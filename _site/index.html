@@ -34,35 +34,55 @@
         <nav class="navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <span class="navbar-brand">
-                        TO - Angular - DO
+                     <button type="button" 
+                            class="navbar-toggle collapsed" 
+                            data-toggle="collapse" 
+                            data-target="#hamburger" 
+                            aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+
+                    <span>
+                        <img src="./hcube.gif" alt="4-dimensions" width="50px">
                     </span>
+                    <a href="#" class="navbar-brand">
+                         TO - Angular - DO
+                    </a>
                 </div>
 
-                    <ul class="nav navbar-nav">
-                        <li><a href="#"><< Current >> List</a>
-                            </li>
+                <div class="collapse navbar-collapse" id="hamburger">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">All Lists</a>
                             </li>
                         <li><a href="#" ng-click="bomb.markAllComplete()">All Complete / Incomplete</a>
                             </li>
                     </ul>
-
+                </div>
             </div>
         </nav>
     </header>
 
     <div class="container">
-        <div class="content">
-
-                    <button ng-click="bomb.listByKey('name')">Order by Alpha
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                    <button ng-click="bomb.listByKey('name')" class="btn btn-default">Order by Alpha
                         </button>
-                    <button ng-click="bomb.listByKey('date')">Order by Date
+                    <button ng-click="bomb.listByKey('date')" class="btn btn-default">Order by Date
                         </button>
       <!--              <button ng-click="bomb.listByKey('complete')">Order by Completion
                         </button>
         -->
+            </div>
+        </div> <!--- END row 1 -->
 
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
     <!-- showing old tasks -->
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -102,7 +122,20 @@
                             </tbody>
                         </div>
                 </table>
+            </div>
+            <div class="col-md-2"></div>
+        </div> <!-- END row 2 -->
 
+        <!-- congratulations messages -->
+        <div class="row">
+            <div class="col-md-12">
+                
+            </div>
+        </div> <!-- END row 3 -->
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                             <!-- adding new tasks -->
                     <div class="form-group">
                         <label for="new_task">Add a Task
@@ -116,9 +149,10 @@
                     <button type="submit" 
                         ng-click="bomb.addTask()" 
                         class="btn btn-info">New Task</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div> <!-- END row 4 -->
 
-
-        </div> <!-- END content block -->
     </div> <!-- END container -->
 
     <footer>
