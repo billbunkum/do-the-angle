@@ -5,7 +5,7 @@ function mainController($filter) {
     const ctrl = this;
     ctrl.user_input = {};
     ctrl.all_complete = false;
-    ctrl.check_complete = false;
+//    ctrl.check_complete = false;
     ctrl.alert_button = false;
 
 
@@ -38,7 +38,18 @@ function mainController($filter) {
 
 //bootstrap alert message appears or disappears
         ctrl.alert_button = !ctrl.alert_button;
+
+        ctrl.extra();
     };
+
+    function extra () {
+        if (errand.done) {
+            ctrl.tasks.done = true;
+        } else {
+            ctrl.tasks.done = false;
+        };
+    }
+
 
 //adds task to bottom of list
     function addTask() {
@@ -51,7 +62,9 @@ function mainController($filter) {
 
 //toggles task complete / incomplete; changes button text accordingly
     function toggleComplete(errand) {
+//ng-show for check mark
         errand.done = !errand.done;
+
 //ng-show for button toggle -> 'mark' & 'reset'
         errand.mark_button = !errand.mark_button;
     };
@@ -78,4 +91,5 @@ function mainController($filter) {
 
     ctrl.listByKey = listByKey;
 
+    ctrl.extra = extra;
 } //end of mainController

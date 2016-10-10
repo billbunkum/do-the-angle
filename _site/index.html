@@ -77,9 +77,9 @@
                         </button>
                     <button ng-click="bomb.listByKey('date')" class="btn btn-default">Order by Date
                         </button>
-      <!--              <button ng-click="bomb.listByKey('complete')">Order by Completion
+                    <button ng-click="bomb.listByKey('done')">Order by Completion
                         </button>
-        -->
+
             </div>
         </div> <!--- END row 1 -->
 
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <tbody ng-repeat="errand in bomb.tasks track by $index">
                                 <tr>
-                                <!-- check mark if bomb.complete_check using errand.done is true-->
+                                <!-- 'check-mark' if bomb.complete_check using errand.done is true-->
                                     <td> 
                                         <i ng-show="errand.done" 
                                         class="fa fa-check" 
@@ -116,7 +116,7 @@
                                         <button ng-click="bomb.toggleComplete(errand)" 
                                             class="btn btn-info">Reset Task</button>
                                     </td>
-                                <!-- the clickable 'X' -->
+                                <!-- the clickable 'X' for removing -->
                                     <td>
                                         <i class="fa fa-times-circle fa-2x" 
                                         ng-click="bomb.removeTask($index)" 
