@@ -5,25 +5,21 @@ function mainController($filter) {
     const ctrl = this;
     ctrl.user_input = {};
     ctrl.all_complete = false;
-//    ctrl.check_complete = false;
     ctrl.alert_button = false;
 
+// 'saves' old list in next available index
+    ctrl.listSave = [];
 
 //this houses 'task objects'
     ctrl.tasks = [
         {
             name: "garbage",
-            date: "01-06-2016 @ 7:02:34PM"
+            date: "01-06-2016"
         },
 
         {
             name: "dinner",
-            date: "10-05-2012 @ 7:02:34AM"
-        },
-
-        {
-            name: "finish this app",
-            date: "10-03-2015 @ 3:02:34PM"
+            date: "10-05-2012"
         }
     ];
 
@@ -78,8 +74,22 @@ function mainController($filter) {
     };
 
 //orders by alphabetical
+//does not TOGGLE
     function listByKey(orderByKey) {
         ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
+    };
+
+//create a new list & resets ctrl.tasks
+    function createNew() {
+        for (i = 0; i <= ctrl.ListSave.length; i++){
+            if (ctrl.listSave[i] != undefined){
+                ctrl.listSave[i+1].push(ctrl.tasks);
+            } else {
+                ctrl.listSave.push(ctrl.tasks);
+            };
+        };
+
+        ctrl.tasks = {};
     };
 
 //setting functions to ctrl
@@ -92,4 +102,6 @@ function mainController($filter) {
     ctrl.listByKey = listByKey;
 
     ctrl.extra = extra;
+
+    ctrl.createNew = createNew;
 } //end of mainController
