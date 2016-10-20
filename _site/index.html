@@ -58,11 +58,7 @@
 
                 <div class="collapse navbar-collapse" id="hamburger">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" ng-click="bomb.markAllComplete()">All Complete / Incomplete</a>
-                            </li>
-                        <li><a href="#">All Lists</a>
-                            </li>
-                        <li><a href="#" ng-click="bomb.createNew()"> Start new List</a>
+                        <li><a href="#" ng-click="bomb.markAllComplete()">Mark All Complete / Incomplete</a>
                             </li>
                     </ul>
                 </div>
@@ -163,14 +159,22 @@
                     </div>
                     <div class="submit-button">
                         <button type="submit" 
-                            class="btn btn-info">New Task</button>
+                            class="btn btn-info btn-lg">New Task</button>
                     </div>
                 </form>
             </div>
             <div class="col-md-3"></div>
         </div> <!-- END row 4 -->
 
+
     </div> <!-- END container -->
+
+    <p />
+    <div class="debug">
+        <pre>
+            {{ bomb.tasks | json }}
+        </pre>
+    </div>
 
     <footer>
     <hr>
@@ -178,5 +182,8 @@
             <div class="copyright">&copy;2016 Bill Bunkum - Do the Angle</div>
         </div>
     </footer>
+
+<!-- debugger -->
+
 </body>
 </html>

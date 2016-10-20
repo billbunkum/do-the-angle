@@ -7,20 +7,9 @@ function mainController($filter) {
     ctrl.all_complete = false;
     ctrl.alert_button = false;
 
-// 'saves' old list in next available index
-    ctrl.listSave = [];
-
 //this houses 'task objects'
     ctrl.tasks = [
-        {
-            name: "garbage",
-            date: "01-06-2016"
-        },
 
-        {
-            name: "dinner",
-            date: "10-05-2012"
-        }
     ];
 
 //uses a condition statement to toggle all check boxes at once w/ nav link
@@ -35,9 +24,11 @@ function mainController($filter) {
 //bootstrap alert message appears or disappears
         ctrl.alert_button = !ctrl.alert_button;
 
+//helper function which 'orders by completion'
         ctrl.extra();
     };
 
+//ordering by completion; NEED because function call/button click exists outside of 'errand' loop
     function extra () {
         if (errand.done) {
             ctrl.tasks.done = true;
@@ -46,11 +37,14 @@ function mainController($filter) {
         };
     }
 
-
 //adds task to bottom of list
     function addTask() {
+//        ctrl.tasks.newlist.push(ctrl.user_input);
         ctrl.tasks.push(ctrl.user_input);
         ctrl.user_input.date = new Date();
+//setting default values so 'order by completions works consistently'
+        ctrl.user_input.mark_button = false; 
+        ctrl.user_input.done = false;
 
         ctrl.user_input = {};
 
@@ -76,7 +70,13 @@ function mainController($filter) {
 //orders by alphabetical
 //does not TOGGLE
     function listByKey(orderByKey) {
-        ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
+        if ('orderby' == 'done'){
+            ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
+        } else if ('orderby' == 'name') {
+            ctrl.tasks = $filter('orderBy')(ctrl.tasks, '-'+orderByKey);
+        } else {
+            ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
+        };
     };
 
 //create a new list & resets ctrl.tasks
@@ -89,7 +89,6 @@ function mainController($filter) {
             };
         };
 
-        ctrl.tasks = {};
     };
 
 //setting functions to ctrl
