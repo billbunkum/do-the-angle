@@ -6,6 +6,7 @@ function mainController($filter) {
     ctrl.user_input = {};
     ctrl.all_complete = false;
     ctrl.alert_button = false;
+    ctrl.current_sort = 'name';
 
 //this houses 'task objects'
     ctrl.tasks = [
@@ -70,13 +71,20 @@ function mainController($filter) {
 //orders by alphabetical
 //does not TOGGLE
     function listByKey(orderByKey) {
-        if ('orderby' == 'done'){
+        if (orderByKey == 'done'){
             ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
-        } else if ('orderby' == 'name') {
-            ctrl.tasks = $filter('orderBy')(ctrl.tasks, '-'+orderByKey);
-        } else {
-            ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
+        } else if (orderByKey == 'name') {
+            ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
+        } else if (orderByKey == 'date') {
+            ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
         };
+        // if (orderByKey == ctrl.current_sort){
+        //     ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, true);
+        // } else {
+        //     ctrl.tasks = $filter('orderBy')(ctrl.tasks, orderByKey, false);
+        // };
+        // ctrl.current_sort = orderByKey;
+        // console.log(ctrl.current_sort);
     };
 
 //create a new list & resets ctrl.tasks
